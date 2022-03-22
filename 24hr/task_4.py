@@ -4,7 +4,7 @@ class calculatconsumption:
         self.pcw = pcW
         self.nh = nH
         
-    def energy_consumption(self):
+    def energy_consumption_per_day(self):
         return ((self.pcw * self.nh) / 1000)
 
 
@@ -14,10 +14,10 @@ class displayEnergyconsumption(calculatconsumption):
         super().__init__(dName, pcW, nH)
 
     def calculate_energy_consumption_per_month(self):
-        return (self.electricity_rate * super().energy_consumption()) * 30
+        return (self.electricity_rate * super().energy_consumption_per_day()) * 30
     
     def calculate_energy_consumption_per_annual(self):
-        return (self.electricity_rate * super().energy_consumption()) * 365
+        return (self.electricity_rate * super().energy_consumption_per_day()) * 365
 
     def manitor_device(self, budget):
         devicelist = []
