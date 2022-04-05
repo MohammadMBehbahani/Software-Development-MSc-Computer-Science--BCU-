@@ -3,35 +3,33 @@ class Service:
         self._name = name
 
     def service_Fare(self):
-        match self._name:
-                case 'bus':
+        if self._name == 'bus':
                     return 26.00
-                case 'taxi':
+        elif self._name == 'taxi':
                     return 45.00
-                case 'train':
+        elif self._name == 'train':
                     return 57
-                case 'aeroplane':
+        elif self._name == 'aeroplane':
                     return 135.00
 
     def calc_Fare(self, countBag, weight):
-        if (countBag > 2 or weight > 50) or (countBag <= 2 and weight > 50):
-            match self._name:
-                case 'bus':
+        if countBag <= 2 and weight <= 50:
+            if self._name == 'bus':
                     fare= (self.service_Fare() * 5) / 100
                     totalfare = self.service_Fare() + fare
                     display_msg(totalfare, fare)
 
-                case 'taxi':
+            elif self._name ==  'taxi':
                     fare= (self.service_Fare() * 10) / 100
                     totalfare = self.service_Fare() + fare
                     display_msg(totalfare, fare)
 
-                case 'train':
+            elif self._name == 'train':
                     fare= (self.service_Fare() * 15) / 100
                     totalfare = self.service_Fare() + fare
                     display_msg(totalfare, fare)
 
-                case 'aeroplane':
+            elif self._name == 'aeroplane':
                     fare= (self.service_Fare() * 20) / 100
                     totalfare = self.service_Fare() + fare
                     display_msg(totalfare, fare)
@@ -52,14 +50,13 @@ def select_Service():
 
     value = int(input('Please Select Your Service: \n'))
 
-    match value:
-        case 1:
+    if value == 1:
             return 'bus'
-        case 2:
+    elif value == 2:
             return 'taxi'
-        case 3:
+    elif value == 3:
             return 'train'
-        case 4:
+    elif value == 4:
             return 'aeroplane'
 
 def enter_countbag_totalweight():
